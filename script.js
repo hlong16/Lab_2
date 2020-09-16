@@ -1,15 +1,15 @@
 
-// TODO: load the dataset 
-
 let attractions;
 
+// TODO: load the dataset 
 fetch('./attractions.json')
     .then(res => res.json())
     .then(data => {
         attractions = data;
         attractions.sort(topFiveSort);
         filterData();
-    });
+    }
+);
 
 
 function topFiveSort(first, second) {
@@ -21,21 +21,9 @@ function filterByCategory(item) {
 }
 
 function filterData(category = 'all') {
+    // TODO: filter attractions by the selected category
+    // TODO: filter top 5 attractions
     let topFive;
-
-	/* **************************************************
-	 *
-	 * TODO: filter attractions by the selected category
-	 * TODO: filter top 5 attractions
-	 *
-	 * CALL THE FOLLOWING FUNCTION TO RENDER THE BAR-CHART:
-	 *
-	 * renderBarChart(data)
-	 *
-	 * - 'data' must be an array of JSON objects
-	 * - the max. length of 'data' is 5
-	 *
-	 * **************************************************/
     
     if(category !== 'all') {
         let temp = attractions.filter(filterByCategory, category);
@@ -46,6 +34,7 @@ function filterData(category = 'all') {
     renderBarChart(topFive);
 
 }
+
 
 // TODO: Define an event listener for the dropdown menu
 //       Call filterData with the selected category
